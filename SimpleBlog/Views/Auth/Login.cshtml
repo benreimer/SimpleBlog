@@ -1,6 +1,25 @@
-﻿@{
-    ViewBag.Title = "Login";
+﻿@model SimpleBlog.ViewModels.AuthLogin   
 
+@{
+    ViewBag.Title = "Login";
 }
 
-    <p>THIS IS THE LOGIN VIEW!</p>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()  //this adds the messages telling the user which fields are required.
+    
+    <div>
+        @Html.LabelFor(x => x.Username)
+        @Html.EditorFor(x => x.Username)
+    </div>
+    
+    <div>
+        @Html.LabelFor(x => x.Password)
+        @Html.EditorFor(x => x.Password)
+    </div>
+    
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+}
+
