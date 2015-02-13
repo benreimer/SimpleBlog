@@ -5,12 +5,13 @@ namespace SimpleBlog.Areas.Admin.Controllers
 {
 
 [AuthorizeEnum(Role.Administrator)]
+[SelectedTab("posts")]
 
     public class PostsController : Controller
     {
         public ActionResult Index()
         {
-            return Content("ADMIN POSTS!");
+            return View();
         }
     }
 }

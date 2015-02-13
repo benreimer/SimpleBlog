@@ -7,13 +7,14 @@ namespace SimpleBlog.Areas.Admin.Controllers
     
 
     [AuthorizeEnum(Role.Administrator)]
+    [SelectedTab("users")]
 
     
     public class UsersController: Controller
     {
         public ActionResult Index()
         {
-            return Content("USERS!");
+            return View();
         }
     }
 }
