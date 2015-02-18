@@ -1,0 +1,1354 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MvcPowerTools</name>
+    </assembly>
+    <members>
+        <member name="T:MvcPowerTools.AjaxRequestAttribute">
+            <summary>
+            Marks an action or controller as ajax only
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.ControllerHandlers.CommandController`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TModel">Model from POST</typeparam>
+            <typeparam name="TResult">Use <see cref="T:MvcPowerTools.ControllerHandlers.NoResult"/> when you don't need to return anything</typeparam>
+        </member>
+        <member name="M:MvcPowerTools.ControllerHandlers.CommandController`2.Handle(`0,System.Func{`1,System.Web.Mvc.ActionResult},System.Func{`0,System.Web.Mvc.ActionResult})">
+            <summary>
+            Executes the handler
+            </summary>
+            <param name="input">Input model</param>
+            <param name="resultConfig">What to do with the command's result</param>
+            <param name="nullModelResult">What to return if the model is invalid</param>
+            <returns></returns>
+        </member>
+        <member name="P:MvcPowerTools.Controllers.ReturnViewIfValidationFailsAttribute.ViewName">
+            <summary>
+            Default is the name of the action
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Html.AngularJsSupport.Angular(HtmlTags.HtmlTag,System.String,System.String)">
+            <summary>
+            Set and AngularJs directive
+            </summary>
+            <param name="tag"></param>
+            <param name="directive">Name without the "ng-" prefix</param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MvcPowerTools.Html.AsOneElementAttribute">
+            <summary>
+            Signals html conventions to treat the user defined class as one element i.e all conventions will be applied only to that property, its children are ignored
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.Conventions.CommonDisplayModifiers">
+            <summary>
+            Adds a label before display value
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Html.HtmlConventionsModule.Profile">
+            <summary>
+            Empty means any profile
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.Conventions.CommonEditorModifiers">
+            <summary>
+            Only for primitives
+            Adds validation attributes,
+            label (LabelTag) before input 
+            and 
+            validation message (ValidationMessageTag) after input
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.Conventions.DataAnnotationBuilders">
+            <summary>
+            Builds hidden tag for [HiddenInput]
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.Conventions.PopulatePasswordAttribute">
+            <summary>
+            Signals html conventions to allow the population of password values in editors (not recommended; use at your own risk).
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.Conventions.TwitterBootstrapFormElements">
+            <summary>
+            Modifiers to make your form elements look nice. 
+            You want this added after data annotation modifiers but before other modifiers.
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.DisplayTemplateAttribute">
+            <summary>
+            Tells html conventions to use the template with the same name as the type, instead of the defined html conventions.
+            Template must be in a 'DisplayTemplates' directory
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.EditorTemplateAttribute">
+            <summary>
+            Tells html conventions to use the template with the same name as the type, instead of the defined html conventions.
+            Template must be in a 'EditorTemplates' directory
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Controllers.ModelIsArgumentAttribute.#ctor(System.String)">
+            <summary>
+            Specify the name of the action parameter which is the model
+            </summary>
+            <param name="paramName"></param>
+        </member>
+        <member name="M:MvcPowerTools.Controllers.ModelIsArgumentAttribute.#ctor(System.Int32)">
+            <summary>
+            Specify the position of the model in action's argument list
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="P:MvcPowerTools.Controllers.ModelIsArgumentAttribute.Position">
+            <summary>
+            Specify the position of the model in the parameter list
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Controllers.ModelIsArgumentAttribute.ParameterName">
+            <summary>
+            Specify which parameter is the model
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Controllers.ValidModelOnlyAttribute">
+            <summary>
+            Invokes action only if the model is valid. Works only for POSTs
+            </summary>
+        </member>
+        <member name="F:MvcPowerTools.Controllers.ValidModelOnlyAttribute.TypesForDIContainer">
+            <summary>
+            Must be registered as generic
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Controllers.ValidModelOnlyAttribute.RegisterInContainer(System.Action{System.Type},System.Action{System.Type})">
+            <summary>
+            Registers types with a DI Container using the provided action
+            </summary>
+            <param name="typeRegistration">Action which will register a type with the DI Container</param>
+            <param name="genericTypeRegistration">Action which will register a generic open type with the DI Container</param>
+        </member>
+        <member name="P:MvcPowerTools.Controllers.ValidModelOnlyAttribute.Ignore">
+            <summary>
+            True to disable smart controller for this action only
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Controllers.ValidModelOnlyAttribute.ValidationFailedPolicy">
+            <summary>
+            Gets or sets the policy to use when a model validation fails.
+            If empty, it will default to return a view with the same name as the action
+            </summary>
+        </member>
+        <member name="F:MvcPowerTools.Controllers.SmartControllerAttribute.TypesForDIContainer">
+            <summary>
+            Must be registered as generic
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Controllers.SmartControllerAttribute.RegisterInContainerGenericTypes(System.Action{System.Type})">
+            <summary>
+            Registers types with a DI Container using the provided action
+            </summary>
+            <param name="genericTypeRegistration">Action which will register a generic open type with the DI Container</param>
+        </member>
+        <member name="P:MvcPowerTools.Controllers.SmartControllerAttribute.ValidationFailedPolicy">
+            <summary>
+            Gets or sets the policy to use when a model validation fails.
+            If empty, it will default to return a view with the same name as the action.
+            The policy can be overriden at action level using <see cref="T:MvcPowerTools.Controllers.ValidModelOnlyAttribute"/>
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Extensions.Common.HandleError(System.Web.HttpContext,System.String,System.Object)">
+            <summary>
+            Render error view 
+            </summary>
+            <param name="ctx">HttpContext</param>
+            <param name="view">View name</param>
+            <param name="viewData">For ViewData</param>
+        </member>
+        <member name="M:MvcPowerTools.Extensions.Common.RealIp(System.Web.HttpRequestBase)">
+            <summary>
+            Gets the IP of the user  detects proxy
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Extensions.Common.IsPost(System.Web.HttpRequestBase)">
+            <summary>
+            Returns true if is a POST request
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ControllerExtensions.RedirectToAction``1(``0,System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            Redirects to the selected action
+            </summary>
+            <typeparam name="T">Controller</typeparam>
+            <param name="ctrl">controller</param>
+            <param name="selector">lambda statement</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ControllerExtensions.RedirectToController``1(System.Web.Mvc.Controller,System.Linq.Expressions.Expression{System.Action{``0}},System.Object)">
+            <summary>
+            Redirects to the selected action from another controller
+            </summary>
+            <typeparam name="T">Controller class</typeparam>
+            <param name="c"></param>
+            <param name="selector">lambda statement</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ControllerExtensions.GetActionName(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Gets the invoked action for controller
+            </summary>
+            <param name="ctrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ControllerExtensions.GetActionName(System.Web.Mvc.Controller)">
+            <summary>
+            Gets the invoked action for controller
+            </summary>
+            <param name="ctrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ControllerExtensions.GetControllerTypes(System.Reflection.Assembly)">
+            <summary>
+            Returns all public types inheriting Controller
+            </summary>
+            <param name="asm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Extensions.HtmlHelpers.Pager(System.Web.Mvc.HtmlHelper,System.Int32,System.Int32,System.Int32,System.Func{System.Int32,System.String},System.Func{System.Int32,System.String},System.String)">
+            <summary>
+            Creates page navigation links as an ul with CSS class=pager
+            </summary>
+            <param name="html">helper</param>
+            <param name="page">Current page</param>
+            <param name="itemsOnPage">Number of items displayed on a page</param>
+            <param name="totalItems">Total number of items available</param>
+            <param name="linkHrefFormat">link format for paging navigation </param>
+            <param name="currentFormat">format for current page navigation.Default it renders
+            &lt;span class="current"&gt;{0}&lt;span&gt;</param>
+            <param name="ulClass">additional CSS class for the ul</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ThemeExtensions.Theme(System.Web.Mvc.WebViewPage)">
+            <summary>
+            Returns the info for the current theme
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ThemeExtensions.GetThemeInfo(System.Web.HttpContextBase)">
+            <summary>
+            Gets current theme info or null if no theme is set
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ThemeExtensions.GetCurrentThemeName(System.Web.HttpContextBase)">
+            <summary>
+            Returns the name of the current theme
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ThemeExtensions.ThemeCss(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Returns a link element pointing to the css file
+            </summary>
+            <param name="html"></param>
+            <param name="file"></param>
+            <returns></returns>       
+        </member>
+        <member name="M:System.Web.Mvc.ThemeExtensions.ThemeScript(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Returns a script element pointing to the specified file
+            </summary>
+            <param name="html"></param>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.ThemeExtensions.UpdateTheme(System.Web.HttpContextBase,System.String)">
+            <summary>
+            Sets the current theme name
+            </summary>
+            <param name="ctx"></param>
+            <param name="theme"></param>
+        </member>
+        <member name="T:System.Web.Mvc.ThemeInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.ThemeInfo.ThemesDirectoryName">
+            <summary>
+            Just the name. Can be empty. Default is Themes
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.ThemeInfo.StyleDirectoryName">
+            <summary>
+            Just the name. Can be empty. Default is Style
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.ThemeInfo.ScriptsDirectoryName">
+            <summary>
+            Just the name. Can be empty. Default is Scripts
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.ThemeInfo.ViewsDirectoryName">
+            <summary>
+            Just the name. If empty then the views are in the theme directory root.
+            Default is Views
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.ThemeInfo.Name">
+            <summary>
+            Gets current theme name
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.ThemeInfo.StyleUrl">
+            <summary>
+            Gets the client url for the theme style directory
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.ThemeInfo.ScriptsUrl">
+            <summary>
+            Gets the client url for the theme scripts directory
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.ThemeInfo.BaseUrl">
+            <summary>
+            Gets the client url for the theme 
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.ThemeInfo.ViewsPath">
+            <summary>
+            Relative path of the views directory. Ex: ~/themes/default/views
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Filters.Extensions.Register(MvcPowerTools.Filters.FiltersConventions,System.Reflection.Assembly,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Register as actions types matching a criteria
+            </summary>
+            <param name="conventions"></param>
+            <param name="asm"></param>
+            <param name="match"></param>
+        </member>
+        <member name="M:MvcPowerTools.Filters.Extensions.RegisterConventions(MvcPowerTools.Filters.FiltersConventions,System.Reflection.Assembly)">
+            <summary>
+            Scans assembly and registers all policies found.
+            Uses dependency resolver
+            </summary>
+            <param name="conventions"></param>
+            <param name="asm"></param>
+        </member>
+        <member name="M:MvcPowerTools.Filters.Extensions.BuildAndEnable(MvcPowerTools.Filters.FiltersConventions)">
+            <summary>
+            Builds the conventions and registers them to be used by asp.net mvc
+            </summary>
+            <param name="filters"></param>
+        </member>
+        <member name="M:MvcPowerTools.Filters.FiltersConventions.BuildProvider">
+            <summary>
+            Builds the filter provider
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Filters.FiltersConventions.RegisterProvider(System.Web.Mvc.FilterProviderCollection,System.Boolean)">
+            <summary>
+            Builds and registers the provider as a global filter provider
+            </summary>
+            <param name="filters"></param>
+            <param name="removeGlobal">True to remove the implicit GlobalFilters provider</param>
+        </member>
+        <member name="P:MvcPowerTools.Filters.FiltersConventions.Conventions">
+            <summary>
+            Gets the list of conventions to apply
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Filters.FiltersConventions.Actions">
+            <summary>
+            Gets the list of actions which will be conventions subjects
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Filters.IConfigureAction.Use``1(System.Action{``0})">
+            <summary>
+            It will use the DependecyResolver to create the filter instance
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="configure"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Filters.FiltersConventions.LambdaConfigurator.Use``1(System.Action{``0})">
+            <summary>
+            It will use the DependecyResolver to create the filter instance
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="configure"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Filters.FiltersWithPoliciesProvider.GetFilters(System.Web.Mvc.ControllerContext,System.Web.Mvc.ActionDescriptor)">
+            <summary>
+            Returns an enumerator that contains all the <see cref="T:System.Web.Mvc.IFilterProvider"/> instances in the service locator.
+            </summary>
+            <returns>
+            The enumerator that contains all the <see cref="T:System.Web.Mvc.IFilterProvider"/> instances in the service locator.
+            </returns>
+            <param name="controllerContext">The controller context.</param><param name="actionDescriptor">The action descriptor.</param>
+        </member>
+        <member name="T:MvcPowerTools.Filters.IFilterConvention">
+            <summary>
+            Convention to apply filters
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Filters.IFilterConvention.Instance">
+            <summary>
+            Filter instance
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Filters.LambdaHostConvention.Instance">
+            <summary>
+            Filter instance
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.Conventions.CommonHtmlBuilders">
+            <summary>
+            Builds file input, label for file input, mvc compatbile checkbox for bools
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Html.DefaultBuilders.FormInputBuilder(MvcPowerTools.Html.ModelInfo)">
+            <summary>
+            Default type is text. It contains a label, input and validation message span
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.DefaultBuilders.LabelBuilder(MvcPowerTools.Html.ModelInfo)">
+            <summary>
+            Creates label tag having for and name set
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.DefaultBuilders.ValidationBuilder(MvcPowerTools.Html.ModelInfo)">
+            <summary>
+            Renders a span with validation message 
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.DefaultBuilders.BasicTagBuilder(MvcPowerTools.Html.ModelInfo)">
+            <summary>
+            Creates a span
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.ModelInfoExtensions.GetModelAttribute``1(MvcPowerTools.Html.ModelInfo)">
+            <summary>
+            Gets attribute from property or parent container
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.ModelInfoExtensions.DisplayTemplate(MvcPowerTools.Html.ModelInfo,System.String)">
+            <summary>
+            Renders the display template (found in DisplayTemplates/[typename].cshtml
+            and wraps it with a html tag
+            </summary>
+            <param name="info"></param>
+            <param name="templateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.ModelInfoExtensions.GetInfoForProperty``1(MvcPowerTools.Html.ModelInfo,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Gets the model info for the specified property
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.ModelInfoExtensions.GetInfoForProperty(MvcPowerTools.Html.ModelInfo,System.String)">
+            <summary>
+            Gets the model info for the specified property
+            </summary>
+            <param name="info"></param>
+            <param name="propertyName">Property can be specified as a path i.e property1.User.Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.TextBox``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Creates a html tag
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.FillTag``3(System.Web.Mvc.HtmlHelper{``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Func{MvcPowerTools.Html.ModelInfo,``0},System.Boolean)">
+            <summary>
+            Sets tag's name, id, validation attributes and value
+            </summary>
+            <typeparam name="TTag"></typeparam>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <param name="tagCreator">Tag factory</param>
+            <param name="setValue">True for input types</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.TextArea``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Creates a html tag
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.Edit``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Uses the defined html conventions to build an editor for the view model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.Label``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Uses the defined html conventions to render the label
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.ValidationMessage``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+             Uses the defined html conventions to render a validation summary element
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.GenerateFor``2(System.Web.Mvc.HtmlHelper{``0},System.String,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Uses html conventions to generate tags using the specified registry
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="registry">Registry with conventions (Displays,Editor,Lables etc)</param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.EditModel``1(System.Web.Mvc.HtmlHelper{``0})">
+            <summary>
+            Uses the defined html conventions to build an editor for the view model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.Display``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Uses the defined html conventions to display the view model member
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="html"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.DisplayModel``1(System.Web.Mvc.HtmlHelper{``0})">
+            <summary>
+            Uses the defined html conventions to display the view model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.CreateFor``1(System.Web.Mvc.UrlHelper,System.Object,System.String)">
+            <summary>
+            Creates the url for the specifeid controller and action
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url"></param>
+            <param name="model"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.DisplayWidget``1(System.Web.Mvc.HtmlHelper{``0},System.Object)">
+            <summary>
+            Uses the defined html conventions to build a widget for model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="html"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.HtmlHelperExtensions.EditorWidget``1(System.Web.Mvc.HtmlHelper{``0},System.Object)">
+            <summary>
+            Uses the defined html conventions to build an editor widget for model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="html"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.ToSelectTag``1(System.Collections.Generic.IEnumerable{``0},System.Action{HtmlTags.SelectTag,``0},System.Object)">
+            <summary>
+            Creates and returns a select tag (dropdown box) having the enumeration as options
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="options"></param>
+            <param name="setOption"></param>
+            <param name="selectedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.ToSelectTag``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.Object},System.Object)">
+            <summary>
+            Creates and returns a select tag (dropdown box) having the enumeration as options
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="options"></param>
+            <param name="textValue">Lambda to select a display value</param>
+            <param name="optionValue">Lambda to select the option value</param>
+            <param name="selectedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.IdFromName(HtmlTags.HtmlTag)">
+            <summary>
+            Sets the id of the tag using the asp.net mvc default convention
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.PlaceAfter(HtmlTags.HtmlTag,HtmlTags.HtmlTag)">
+            <summary>
+            Returns parent tag
+            </summary>
+            <param name="tag"></param>
+            <param name="addition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.PlaceBefore(HtmlTags.HtmlTag,HtmlTags.HtmlTag)">
+            <summary>
+            Returns parent tag
+            </summary>
+            <param name="tag"></param>
+            <param name="addition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.Checked(HtmlTags.HtmlTag)">
+            <summary>
+            Sets the input as checked (checkbox, radio buttons)
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.FirstInputTag(HtmlTags.HtmlTag,System.Predicate{HtmlTags.HtmlTag})">
+            <summary>
+            Searches and returns the input tag contained by the element.
+            Returns null if not found.
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.RegisterParent(HtmlTags.HtmlTag,HtmlTags.HtmlTag)">
+            <summary>
+            Since HtmlTag doesn't have a Parent setter, we have to use this hack to set a tag's parent
+            </summary>
+            <param name="tag"></param>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.PositionAsChild(HtmlTags.HtmlTag)">
+            <summary>
+            Gets the position of tag relative to parent. -1 means it doesn't have a parent
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.ParentOrPlaceholder(HtmlTags.HtmlTag)">
+            <summary>
+            Returns the tag's parent or a placeholder containing the tag
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlTagsUtils.GetChild``1(HtmlTags.HtmlTag,System.Predicate{HtmlTags.HtmlTag})">
+            <summary>
+            Searches in all element's children for a tag matching predicate.
+            Returns null if not found
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="tag"></param>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MvcPowerTools.Html.IHaveModelConventions.Builder">
+            <summary>
+            Can be null
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Html.Internals.ModelConventions.Builder">
+            <summary>
+            Can be null
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Html.MvcCheckboxElement">
+            <summary>
+            Creates a checkbox similar to the one generated by asp.net mvc
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlConventionsManager.GetCurrentRequestProfile(System.Web.HttpContextBase)">
+            <summary>
+            
+            </summary>
+            <exception cref="T:MvcPowerTools.Html.MissingConventionProfileException"></exception>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlConventionsManager.CreateRegistry(System.String)">
+            <summary>
+            Creates and adds registry to collection
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.HtmlConventionsManager.LoadModules(System.Reflection.Assembly[])">
+            <summary>
+            Scans for instances of <see cref="T:MvcPowerTools.Html.HtmlConventionsModule"/> instantiate them and loads them into manager
+            </summary>
+            <param name="assemblies"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.MvcHelpers.AddValidationAttributes(HtmlTags.HtmlTag,MvcPowerTools.Html.ModelInfo)">
+            <summary>
+            Populates the input tag with unobtrusive validation attributes
+            </summary>
+            <param name="tag"></param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Html.ValidationMessageTag.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="inputId"></param>
+            <param name="validationFailed"></param>
+            <param name="message">Message is required for invalid input</param>
+        </member>
+        <member name="T:MvcPowerTools.IpTracking">
+            <summary>
+            Class for tracking ip changing
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.IpTracking.FrontIp">
+            <summary>
+            Gets user ip, ignoring proxies
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.IpTracking.IP">
+            <summary>
+            Gets current ip, takes proxies into consideration
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.LocalizationAttribute.OnlyUI">
+            <summary>
+            True to set only UICulture.
+            Default is false
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.LocalizationAttribute.ParamName">
+            <summary>
+            Query parameter name for the locale
+            default is 'lang'
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.LocalizationAttribute.Default">
+            <summary>
+            Default culture
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.ModelStateWrapper">
+            <summary>
+            IValidationDictionary implementation for ModelState
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.OverrideThemeAttribute.#ctor(System.String)">
+            <summary>
+            Force this theme
+            </summary>
+            <param name="theme"></param>
+        </member>
+        <member name="T:MvcPowerTools.PropertiesOrderAttribute">
+            <summary>
+            Specifies in which order the class' properties/fields should be considered by a conventions (routing,html) engine 
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.PropertiesOrderExtensions.OrderAsAnnotated(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})">
+            <summary>
+            Orders the members according to the <see cref="T:MvcPowerTools.PropertiesOrderAttribute"/> specified on their declaring type.        
+            </summary>
+            <param name="members"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.PropertiesOrderExtensions.OrderAsAnnotated``1(System.Collections.Generic.IEnumerable{``0},System.Type,System.Func{``0,System.String})">
+            <summary>
+            Orders the members according to the <see cref="T:MvcPowerTools.PropertiesOrderAttribute"/> specified on their declaring type.        
+            </summary>
+            <param name="members"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ControllerHandlers.Mediator.QueryTo``1(System.Object)">
+            <summary>
+            Invokes the query handler which will take the specified argument as the input model
+            </summary>
+            <typeparam name="TOut">View model</typeparam>
+            <param name="model">Input model</param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ControllerHandlers.Mediator.QueryAsyncTo``1(System.Object)">
+            <summary>
+            Invokes the async query handler which will take the specified argument as the input model
+            </summary>
+            <typeparam name="TOut">View model</typeparam>
+            <param name="model">Input model</param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ControllerHandlers.Mediator.SendAndReturn``1(System.Object)">
+            <summary>
+            Invokes a request (command) taking the specified argument as the input model and returns its result
+            </summary>
+            <typeparam name="TResult">Output model</typeparam>
+            <param name="input">Input model</param>
+            <returns></returns>
+        </member>
+        <member name="T:MvcPowerTools.ControllerHandlers.QueryController`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TInput">If you don't need input data, use <see cref="T:MvcPowerTools.ControllerHandlers.NoInput"/></typeparam>
+            <typeparam name="TViewModel"></typeparam>
+        </member>
+        <member name="M:MvcPowerTools.ControllerHandlers.QueryController`2.Handle(`0,System.Func{`1,System.Web.Mvc.ActionResult},System.Func{System.Web.Mvc.ActionResult})">
+            <summary>
+            Executes the handler
+            </summary>
+            <param name="input">Input model</param>
+            <param name="resultConfig">Lambda to configure handler result</param>
+            <param name="nullModelResult">What to return if the result is null</param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.ActionCall.GetArgumentNames">
+            <summary>
+            Gets action arguments which are not user defined classes names
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MvcPowerTools.Routing.Conventions.SemanticConstraints">
+            <summary>
+            Automatically adds http constraints (Get, POST etc) to routes based on action name and attributes
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.SetDefaultValue(System.Reflection.MemberInfo,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            If available, it will set route parameter's default value.
+            A null string sets no defaults, an empty string means optional.
+            </summary>
+            <param name="member"></param>
+            <param name="modelInstance"></param>
+            <param name="defaults"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.GetActionName(MvcPowerTools.Routing.ActionCall)">
+            <summary>
+            Returns action name, taking into account [ActionName]
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.SetParamsDefaults(MvcPowerTools.Routing.ActionCall,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Sets the defaults for the route params. Only action parameters with default values are considered.
+            If the value is equal to the type's default value, it's considered optional
+            User defined class params are ignored.
+            This method should not be used for POST.
+            </summary>
+            <param name="defaults"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.StripNamespaceRoot(MvcPowerTools.Routing.RoutingConventionsSettings,System.String)">
+            <summary>
+            Removes the namespace root from the provided string
+            </summary>
+            <param name="settings"></param>
+            <param name="namespace">Usually the namespace of the controller</param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.IsGet(MvcPowerTools.Routing.ActionCall)">
+            <summary>
+            True if the action name starts with 'get'
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.IsPost(MvcPowerTools.Routing.ActionCall)">
+            <summary>
+            True if the action name starts with 'post'
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.RegisterConventions(MvcPowerTools.Routing.RoutingConventions,System.Reflection.Assembly,System.Web.Mvc.IDependencyResolver)">
+            <summary>
+            Scans assembly and registers routing convetions but not configuration modules. Uses dependency resolver
+            </summary>
+            <param name="policy"></param>
+            <param name="asm"></param>
+            <param name="res">Null means it uses the current dependecy resolver</param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.RegisterModulesInContainer(System.Reflection.Assembly,System.Action{System.Type})">
+            <summary>
+            Searches routing conventions modules and registers them in Di Container
+            </summary>
+            <param name="asm"></param>
+            <param name="containerRegister"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.RegisterControllers(MvcPowerTools.Routing.RoutingConventions,System.Reflection.Assembly)">
+            <summary>
+            Register types deriving from Controller class
+            </summary>
+            <param name="policy"></param>
+            <param name="asm"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.RegisterController``1(MvcPowerTools.Routing.RoutingConventions)">
+            <summary>
+            Registers actions from controller
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="policy"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.RegisterControllers(MvcPowerTools.Routing.RoutingConventions,System.Type[])">
+            <summary>
+            Registers actions from the provided types.
+            All types should be Controllers
+            </summary>
+            <param name="policy"></param>
+            <param name="controllers"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Extensions.UseOneModelInHandlerConvention(MvcPowerTools.Routing.RoutingConventions,System.Predicate{MvcPowerTools.Routing.ActionCall})">
+            <summary>
+            This conventions applies only for GET requests
+            </summary>
+            <param name="policy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MvcPowerTools.Routing.Conventions.HandlerRouteConvention">
+            <summary>
+            Handler convention, the controller contains 1 GET and 1 POST
+            All GET methods should be like get(param|param=value). IF param hasn't a default value it's considered required.
+            A parameter with default value of its type, it's considered optional
+            POST method should be named just 'post'
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.FormatRouteTemplate(MvcPowerTools.Routing.ActionCall,System.Text.StringBuilder)">
+            <summary>
+            Customize route for a given action and controller
+            </summary>
+            <param name="callInfo"></param>
+            <param name="sb"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.FormatRouteTemplate(System.Reflection.MemberInfo,System.Text.StringBuilder)">
+            <summary>
+            Allows overrider to write route params from model members
+            </summary>
+            <param name="member"></param>
+            <param name="sb"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.SetConstraint(System.Reflection.MemberInfo,MvcPowerTools.Routing.RouteBuilderInfo,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Sets constraint for the specified model member (route parameters)
+            </summary>
+            <param name="info"></param>
+            <param name="builder"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.SetDefaultValue(System.Reflection.MemberInfo,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Sets route param's default value with rules:
+            a null string sets no defaults, an empty string means optional; value type with default value is ignored;
+            nullable means optional; classes except string are ignored. Rules are implemented in <see cref="M:MvcPowerTools.Routing.Extensions.SetDefaultValue(System.Reflection.MemberInfo,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})"/> method
+            </summary>
+            <param name="info"></param>
+            <param name="modelInstance"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.SetConstraints(MvcPowerTools.Routing.RouteBuilderInfo,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Sets route constraints based on action/controller type
+            </summary>
+            <param name="info"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.IsValidForRoute(System.Type)">
+            <summary>
+            Only primitives, nullables and string are valid
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention.IsCommand(MvcPowerTools.Routing.ActionCall)">
+            <summary>
+            When a controller action is a command, the input model is ignored
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MvcPowerTools.Routing.Conventions.ExcludeFromRouteAttribute">
+             <summary>
+             Signals that the property should not be included in the route url.
+             This property will be a query parameter.
+             Used by <see cref="T:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention"/>
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.Routing.Conventions.RouteSegmentDecoratorAttribute">
+            <summary>
+            When you want to prefix a route segment. Instead of {action}/{page} you may want {action}/page-{page}. 
+            Used by <see cref="T:MvcPowerTools.Routing.Conventions.OneModelInHandlerConvention"/>    
+            </summary> 
+        </member>
+        <member name="M:MvcPowerTools.Routing.RouteBuilderInfo.CreateDefaults">
+            <summary>
+            Creates a route value dictionary with controller and action values set
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.RouteBuilderInfo.CreateRoute(System.String)">
+            <summary>
+            Creates a Route with no url pattern and with the defaults (controller,action) set
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.RouteBuilderInfo.GetConstraint(System.Type)">
+            <summary>
+            Gets defined constraint for type or null
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.Routing.RoutingConventions.Configure(System.Action{MvcPowerTools.Routing.RoutingConventions})">
+            <summary>
+            Configures routing conventions and applies them to RouteTable
+            </summary>
+            <param name="cfg"></param>
+        </member>
+        <member name="F:MvcPowerTools.Routing.RoutingConventions.DefaultRouteUrl">
+            <summary>
+            You can change this. Default is {*catch}
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Routing.RoutingConventionsSettings.NamespaceRoot">
+            <summary>
+            Namespace from where the controllers start. Default is [assembly_name]
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.Routing.RoutingConventionsSettings.CreateHandler">
+            <summary>
+            Gets or sets an implementation of IRouteHandler, default is MvcRouteHandler
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.ThemeAttribute.Default">
+            <summary>
+            Gets or sets the default theme
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.ThemeAttribute.ParamName">
+            <summary>
+            Query parameter name for theme
+            Default is null, which means the theme can't be changed via url query
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.TransferResult">
+            <summary>
+            Transfers execution to the supplied url.
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.UnitTesting.FakeActionDescriptor.Execute(System.Web.Mvc.ControllerContext,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Executes the action method by using the specified parameters and controller context.
+            </summary>
+            <returns>
+            The result of executing the action method.
+            </returns>
+            <param name="controllerContext">The controller context.</param><param name="parameters">The parameters of the action method.</param>
+        </member>
+        <member name="M:MvcPowerTools.UnitTesting.FakeActionDescriptor.GetParameters">
+            <summary>
+            Returns the parameters of the action method.
+            </summary>
+            <returns>
+            The parameters of the action method.
+            </returns>
+        </member>
+        <member name="P:MvcPowerTools.UnitTesting.FakeActionDescriptor.ActionName">
+            <summary>
+            Gets the name of the action method.
+            </summary>
+            <returns>
+            The name of the action method.
+            </returns>
+        </member>
+        <member name="P:MvcPowerTools.UnitTesting.FakeActionDescriptor.ControllerDescriptor">
+            <summary>
+            Gets the controller descriptor.
+            </summary>
+            <returns>
+            The controller descriptor.
+            </returns>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.IFindViewConvention">
+            <summary>
+            Any implementation will be used as a singleton
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.IFindViewConvention.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"></param>
+            <param name="viewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.IFindViewConvention.GetMasterPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for master (layout). If master name is empty, it should return empty
+            </summary>
+            <param name="controllerContext"></param>
+            <param name="masterName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.BaseViewConvention.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"></param>
+            <param name="viewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.BaseViewConvention.GetMasterPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for master (layout). If master name is empty, it should return empty
+            </summary>
+            <param name="controllerContext"></param>
+            <param name="masterName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.Conventions.MvcTemplatesConvention">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.MvcTemplatesConvention.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"/><param name="viewName"/>
+            <returns/>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.MvcTemplatesConvention.GetMasterPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for master (layout). If master name is empty, it should return empty
+            </summary>
+            <param name="controllerContext"/><param name="masterName"/>
+            <returns/>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.OneLayoutConvention.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"/><param name="viewName"/>
+            <returns/>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.OneLayoutConvention.GetMasterPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for master (layout). If master name is empty, it should return empty
+            </summary>
+            <param name="controllerContext"/><param name="masterName"/>
+            <returns/>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.Conventions.PartialsInFoldersWithControllerName">
+            <summary>
+            Search for partials in a folder named as the controller and found in the same place as the controller 
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.PartialsNearController.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"/><param name="viewName"/>
+            <returns/>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.Conventions.PartialsInNamespaceRoot">
+            <summary>
+            Search for partials in the namespace root of the controller.
+            When controller is in ~/Admin/Users/MyController , the partial should be in ~/Admin
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.Conventions.BaseRazorMvcConvention">
+            <summary>
+            Default asp.net mvc views path searching with theming support
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.BaseRazorMvcConvention.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"></param>
+            <param name="viewName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MvcPowerTools.ViewEngines.Conventions.BaseRazorMvcConvention.IsShared">
+            <summary>
+            Search in the Shared folder
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.ViewEngines.Conventions.RazorSharedFolderConvention.IsShared">
+            <summary>
+            Serach in the Shared folder
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.Conventions.ViewIsControllerNameConvention">
+            <summary>
+            Used for Handler pattern controllers
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.ViewIsControllerNameConvention.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"/><param name="viewName"/>
+            <returns/>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.Conventions.ViewsNearController">
+            <summary>
+            Views are in the same folder as controller. 
+            View file name pattern is [controller].cshtml if using Handler convention or [controller]_[supplied view].cshtml
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Conventions.ViewsNearController.GetViewPath(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Gets relative path for view. 
+            </summary>
+            <param name="controllerContext"/><param name="viewName"/>
+            <returns/>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.Extensions.TemplateModel``1(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            Returns the partial model used when rendering a partial model template.
+            Model is set by ModelInfo.EditorTemplate() and ModelInfo.DisplayTemplate()
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cc"></param>
+            <param name="viewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.FlexibleViewEngine.FindPartialView(System.Web.Mvc.ControllerContext,System.String,System.Boolean)">
+            <summary>
+            Finds the specified partial view by using the specified controller context.
+            </summary>
+            <returns>
+            The partial view.
+            </returns>
+            <param name="controllerContext">The controller context.</param><param name="partialViewName">The name of the partial view.</param><param name="useCache">true to specify that the view engine returns the cached view, if a cached view exists; otherwise, false.</param>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.FlexibleViewEngine.FindView(System.Web.Mvc.ControllerContext,System.String,System.String,System.Boolean)">
+            <summary>
+            Finds the specified view by using the specified controller context.
+            </summary>
+            <returns>
+            The page view.
+            </returns>
+            <param name="controllerContext">The controller context.</param><param name="viewName">The name of the view.</param>
+            <param name="masterName">The name of the master.</param>
+            <param name="useCache">true to specify that the view engine returns the cached view, if a cached view exists; otherwise, false.</param>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.FlexibleViewEngine.IsMvcTemplate(System.String)">
+            <summary>
+            True if the view is part of Mvc display or editor templates
+            </summary>
+            <param name="viewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.FlexibleViewEngine.GetView(System.Web.Mvc.ControllerContext,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Finds view and returns result
+            </summary>
+            <param name="controllerContext"></param>
+            <param name="viewName"></param>
+            <param name="masterName"></param>
+            <param name="useCache">Ignored</param>
+            <param name="isPartial"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.FlexibleViewEngine.ReleaseView(System.Web.Mvc.ControllerContext,System.Web.Mvc.IView)">
+            <summary>
+            Releases the specified view by using the specified controller context.
+            </summary>
+            <param name="controllerContext">The controller context.</param><param name="view">The view.</param>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.FlexibleViewEngine.Enable(System.Action{MvcPowerTools.ViewEngines.FlexibleViewEngineSettings},System.Boolean)">
+            <summary>
+            Adds the FlexibleViewEngine to asp.net mvc view engines colections.
+            The default Mvc conventions are automatically enabled
+            </summary>
+            <param name="configure"></param>
+            <param name="removeOtherEngines"></param>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.FlexibleViewEngineSettings">
+            <summary>
+            By default it supports Razor 
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.ViewEngines.FlexibleViewEngineSettings.ViewFactories">
+            <summary>
+            Razor views factory is already added
+            </summary>
+        </member>
+        <member name="P:MvcPowerTools.ViewEngines.FlexibleViewEngineSettings.Conventions">
+            <summary>
+            Asp.Net mvc standard convention for Razor c# are already added
+            </summary>
+        </member>
+        <member name="T:MvcPowerTools.ViewEngines.IViewFactory">
+            <summary>
+            Used to create view instances for a specific view engine
+            </summary>
+        </member>
+        <member name="M:MvcPowerTools.ViewEngines.IViewFactory.IsSuitableFor(System.String)">
+            <summary>
+            True if the view engine handles files with the specified extensions
+            </summary>
+            <param name="fileExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MvcPowerTools.ViewEngines.ViewCreationData.MasterPath">
+            <summary>
+            Should be ignored for partials
+            </summary>
+        </member>
+    </members>
+</doc>

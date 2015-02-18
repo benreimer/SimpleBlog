@@ -1,0 +1,26 @@
+﻿@model SimpleBlog.Areas.Admin.ViewModels.UsersEdit
+
+<h1>Edit User @Model.Username</h1>
+<!-- there is currently an issue with the line above. if I try to edit a user to an already existing user, I get a warning-->
+<!-- saying  the username must be unique. however, the page now reads "Edit User "invalid name" rather than "Edit User "correct name" -->
+<!-- try to fix this later -->
+
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        @Html.LabelFor(f => f.Username)
+        @Html.TextBoxFor(f => f.Username, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(f => f.Email)
+        @Html.TextBoxFor(f => f.Email, new { @class = "form-control", type = "email" })
+        </div>
+
+
+    <input type="submit" value="Update User" class="btn btn-primary" />
+    <a href="@Url.Action("index")">or cancel</a>
+}
