@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using SimpleBlog.ViewModels;
 using System.Web.Security;
+using NHibernate.Linq;
+using SimpleBlog.Models;
 
 namespace SimpleBlog.Controllers
 {
@@ -25,17 +27,21 @@ namespace SimpleBlog.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(AuthLogin form,string returnUrl)
+        public ActionResult Login(AuthLogin form, string returnUrl)
         {
+            var user = Database.Session.Query<User>().FirstOrDefault(u => u.Username == form.Username);
+            if (user == null)
+                SimpleBlog.Models.User.FakeHash();
 
+            if (user == null || !user.CheckPassword(form.Password))
+                ModelState.AddModelError("Username", "Username or password is incorrect");
 
             if (!ModelState.IsValid)
-                return (View(form));
+                return View(form);
 
             //set authentication cookie
-            FormsAuthentication.SetAuthCookie(form.Username, true);
+            FormsAuthentication.SetAuthCookie(user.Username, true);
 
-            //if the return url is populated, redirect to this url. otherwise redirect to home.
            if (!string.IsNullOrWhiteSpace(returnUrl))
                 return Redirect(returnUrl);
 
