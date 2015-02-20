@@ -4,7 +4,7 @@ using SimpleBlog.Infrastructure;
 namespace SimpleBlog.Areas.Admin.Controllers
 {
 
-[AuthorizeEnum(Role.Administrator)]
+[AuthorizeEnum(UserRights.admin)]
 [SelectedTab("posts")]
 
     public class PostsController : Controller

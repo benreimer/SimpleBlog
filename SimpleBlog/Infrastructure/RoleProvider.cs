@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace SimpleBlog.Infrastructure
 {
-    public enum Role
+    public enum UserRights
     {
-        Administrator = 1,
+        admin = 1,
         //UserWithPrivileges = 2,
         //User = 3,
     }
@@ -35,12 +35,10 @@ namespace SimpleBlog.Infrastructure
 
         public override string[] GetRolesForUser(string username)
         {
-           if(username=="ben")
-            return new[] { "Administrator" };
-           
-        return new string[]{};
-
-            
+          // if(username=="ben")
+            //return new[] { "admin" };
+           //return new string[]{};
+            return Auth.User.Roles.Select(role => role.Name).ToArray();
         }
         
         
