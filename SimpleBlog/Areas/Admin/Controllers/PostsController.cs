@@ -5,7 +5,8 @@ using SimpleBlog.Infrastructure;
 using NHibernate.Linq;
 using SimpleBlog.Areas.Admin.ViewModels;
 using System;
-
+using System.Collections.Generic;
+using SimpleBlog.Infrastructure.Extensions;
 
 namespace SimpleBlog.Areas.Admin.Controllers
 {
@@ -37,7 +38,13 @@ namespace SimpleBlog.Areas.Admin.Controllers
         {
             return View("Form", new PostsForm
                 {
-                    isNew = true
+                    isNew = true,
+                    Tags = Database.Session.Query<Tag>().Select(tag => new TagCheckbox
+                    {
+                        Id = tag.Id,
+                        Name = tag.Name,
+                        IsChecked = false
+                    }).ToList()
                 });
         }
 
@@ -53,8 +60,16 @@ namespace SimpleBlog.Areas.Admin.Controllers
                 PostId = id,
             Content = post.Content,
             Slug = post.Slug,
-            Title = post.Title
+            Title = post.Title,
+                Tags = Database.Session.Query<Tag>().Select(tag => new TagCheckbox
+                {
+                    Id = tag.Id,
+                    Name = tag.Name,
+                    IsChecked = post.Tags.Contains(tag)
+                }).ToList()
             });
+
+ 
         }
 
         [HttpPost]
@@ -65,6 +80,8 @@ namespace SimpleBlog.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return View(form);
 
+            var selectedTags = ReconsileTags(form.Tags).ToList();
+
             Post post;
                 if(form.isNew)
                 {
@@ -73,21 +90,105 @@ namespace SimpleBlog.Areas.Admin.Controllers
                         CreatedAt = DateTime.UtcNow, 
                         User = Auth.User,
                     };
+
+                    foreach (var tag in selectedTags)
+                        post.Tags.Add(tag);
                 }
                 else
                 {
                     post = Database.Session.Load<Post>(form.PostId);
+
                     if (post == null)
                         return HttpNotFound();
+
                     post.UpdatedAt = DateTime.UtcNow;
+
+                    foreach (var toAdd in selectedTags.Where(t => !post.Tags.Contains(t)))
+                        post.Tags.Add(toAdd);
+
+                    foreach (var toRemove in post.Tags.Where(t => !selectedTags.Contains(t)).ToList())
+                        post.Tags.Remove(toRemove);
                 }
 
-            post.Title = form.Title;
-            post.Slug = form.Slug;
-            post.Content = form.Content;
+                post.Title = form.Title;
+                post.Slug = form.Slug;
+                post.Content = form.Content;
 
-            Database.Session.SaveOrUpdate(post);
+                Database.Session.SaveOrUpdate(post);
+                return RedirectToAction("Index");
+        }
+
+
+        //figure out how to make the trash, delete, restore below into 2-3 lines of code
+        //passing lambdas and expressions?
+    //also once any of these actions are complete, I am returned to the index page.  I don't necessarily want this.
+    //I want to remain on the current page - see if I can get this to work
+
+
+    [HttpPost]
+        public ActionResult Trash (int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+            if (post == null)
+                return HttpNotFound();
+
+            post.DeletedAt = DateTime.UtcNow;
+            Database.Session.Update(post);
             return RedirectToAction("Index");
         }
+
+    [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+            if (post == null)
+                return HttpNotFound();
+
+            Database.Session.Delete(post);
+            return RedirectToAction("Index");
+        }
+
+    [HttpPost]
+        public ActionResult Restore(int id)
+        {
+            var post = Database.Session.Load<Post>(id);
+            if (post == null)
+                return HttpNotFound();
+
+            post.DeletedAt = null;
+            Database.Session.Update(post);
+            return RedirectToAction("Index");
+        }
+
+
+    private IEnumerable<Tag> ReconsileTags(IEnumerable<TagCheckbox> tags)
+    {
+        foreach (var tag in tags.Where(t => t.IsChecked))
+        {
+            if (tag.Id != null)
+            {
+                yield return Database.Session.Load<Tag>(tag.Id);
+                continue;
+            }
+
+            var existingTag = Database.Session.Query<Tag>().FirstOrDefault(t => t.Name == tag.Name);
+            if(existingTag != null)
+            {
+                yield return existingTag;
+                continue;
+            }
+
+            var newTag = new Tag
+            {
+                Name = tag.Name, 
+                Slug = tag.Name.Slugify()
+            };
+
+            Database.Session.Save(newTag);
+            yield return newTag;
+        }
+    }
+
+
     }
 }
