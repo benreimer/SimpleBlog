@@ -183,6 +183,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ViewModels\Posts.cs" />
     <Compile Include="WebApiConfig.cs" />
     <Content Include="Areas\Admin\Scripts\forms.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -473,6 +474,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Tools\DeployDb-Dev.bat" />
     <Content Include="Tools\RollbackDb-Dev.bat" />
+    <Content Include="Views\Posts\_Posts.cshtml" />
+    <Content Include="Views\Posts\_Post.cshtml" />
+    <Content Include="Views\Posts\Show.cshtml" />
+    <Content Include="Views\Posts\Tag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

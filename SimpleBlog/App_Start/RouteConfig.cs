@@ -16,6 +16,13 @@ namespace SimpleBlog
             var namespaces = new[] { typeof(PostsController).Namespace };
             
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute("TagForRealThisTime", "tag/{idAndSlug}", new { Controller = "Posts", Action = "Tag" }, namespaces); 
+            routes.MapRoute("Tag", "tag/{id}-{slug}", new { Controller = "Posts", Action = "Tag" }, namespaces);
+
+            routes.MapRoute("PostForRealThisTime", "post/{idAndSlug}", new { Controller = "Posts", Action = "Show" }, namespaces);
+            routes.MapRoute("Post", "post/{id}-{slug}", new { Controller = "Posts", Action = "Show" }, namespaces);
+
             
             routes.MapRoute("Login", "login", new { Controller ="Auth", Action="Login"},namespaces);
 
