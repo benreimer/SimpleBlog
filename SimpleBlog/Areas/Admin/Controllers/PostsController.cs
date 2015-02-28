@@ -80,7 +80,8 @@ namespace SimpleBlog.Areas.Admin.Controllers
  
         }
 
-        [HttpPost]
+    //to_do: get antiforgerytoken working on this page
+        [HttpPost,ValidateInput(false)]
         public ActionResult Form(PostsForm form)
         {
             form.isNew = form.PostId == null;
@@ -127,7 +128,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
         }
 
 
-        //figure out how to make the trash, delete, restore below into 2-3 lines of code
+        //to_do: figure out how to make the trash, delete, restore below into 2-3 lines of code
         //passing lambdas and expressions?
     //also once any of these actions are complete, I am returned to the index page.  I don't necessarily want this.
     //I want to remain on the current page - see if I can get this to work
