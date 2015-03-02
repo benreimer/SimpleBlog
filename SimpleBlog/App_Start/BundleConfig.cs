@@ -32,9 +32,11 @@ namespace SimpleBlog
             
             bundles.Add(new ScriptBundle("~/scripts")
                 .Include("~/scripts/jquery-2.1.3.js")
+                .Include("~/scripts/jquery.timeago.js")
                 .Include("~/scripts/jquery.validate.js")
                 .Include("~/scripts/jquery.validate.unobtrusive.js")
-                .Include("~/scripts/bootstrap.js"));
+                .Include("~/scripts/bootstrap.js")
+                .Include("~/scripts/Frontend.js"));
 
         }
     }

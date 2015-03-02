@@ -153,9 +153,11 @@
     <Compile Include="AppStart\JsAndCssBundlingAppStart.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\LayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Content Include="Areas\Admin\Scripts\PostEditor.js" />
+    <Compile Include="Areas\Admin\ViewModels\Layout.cs" />
     <Compile Include="Areas\Admin\ViewModels\Posts.cs" />
     <Compile Include="Areas\Admin\ViewModels\Users.cs" />
     <Compile Include="Auth.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\Frontend.js" />
     <Compile Include="ViewModels\Auth.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -454,6 +457,7 @@
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\jquery-2.1.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.timeago.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -478,9 +482,12 @@
     <Content Include="Views\Posts\_Post.cshtml" />
     <Content Include="Views\Posts\Show.cshtml" />
     <Content Include="Views\Posts\Tag.cshtml" />
+    <Content Include="Views\Layout\Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Layout\" />
+    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
