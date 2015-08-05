@@ -25,6 +25,7 @@ namespace SimpleBlog
                         return null;
 
                     HttpContext.Current.Items[UserKey] = user;
+                    //something
                 }
 
                 return user;
